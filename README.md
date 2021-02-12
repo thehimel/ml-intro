@@ -182,3 +182,36 @@ predictions = model.predict(input_test)
 score = accuracy_score(output_test, predictions)
 score
 ```
+
+#### Persisting Models
+
+- Train your model once and use that model to produce output every time without training it again.
+
+```python
+# Persisting Models
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier as DTC
+import joblib
+
+music_data = pd.read_csv('data/music.csv')
+input_set = music_data.drop(columns=['genre'])
+output_set = music_data['genre']
+
+# Create a model
+model = DTC()
+
+# Train the model
+model.fit(input_set, output_set)
+
+# Create the persistent model in a file
+model_location = 'models/music.joblib'
+joblib.dump(model, model_location)
+
+# Load the persistent model from a file
+model_persistent = joblib.load(model_location)
+predictions = model_persistent.predict([
+    [21, 1]
+])
+predictions
+```
