@@ -105,7 +105,7 @@ Recommend music based on the user's age in a music app.
 6. Make predictions
 7. Evaluate and improve
 
-#### Import the data
+#### 1. Import the data
 
 - Download music.csv.zip from [here](https://programmingwithmosh.com/wp-content/uploads/2020/09/music.csv.zip)
 - Extract and copy the music.csv to 'src/data'
@@ -120,7 +120,7 @@ music_data = pd.read_csv('data/music.csv')
 music_data
 ```
 
-#### Preparing the Data
+#### 2. Preparing the Data
 
 - We don't have any repeated data, thus duplicate data removal is not needed.
 - We need to divide our data set to input set and output set.
@@ -137,7 +137,7 @@ output_set = music_data['genre']
 output_set
 ```
 
-#### Learning and Predicting
+#### 3. Learning and Predicting
 
 - We are going to use Decision Tree algorithm from Scikit-Learn library to create the model.
 - Scikit-Learn is the most popular ML library in Python.
@@ -164,7 +164,7 @@ predictions = model.predict([
 predictions
 ```
 
-#### Calculating the Accuracy
+#### 4. Calculating the Accuracy
 
 - Split the main data set into 2 sets: training set and testing set.
 - Keep 70% to 80% data for training, and rest 20% to 30% data for testing.
@@ -188,7 +188,7 @@ score = accuracy_score(output_test, predictions)
 score
 ```
 
-#### Persisting Models
+#### 5. Persisting Models
 
 - Train your model once and use that model to produce output every time without training it again.
 
@@ -221,7 +221,7 @@ predictions = model_persistent.predict([
 predictions
 ```
 
-#### Visualizing Decision Trees
+#### 6. Visualizing Decision Trees
 
 - Install the extension Graphviz (dot) language support for Visual Studio Code by João Pinto.
 - Reload VS Code.
