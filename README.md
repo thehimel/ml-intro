@@ -38,3 +38,4 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 - `jupyter notebook`
 - Go to your desired directory.
 - New -> Python 3 Notebook.
+- You can rename the file to anything.
