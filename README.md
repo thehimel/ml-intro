@@ -105,9 +105,24 @@ Recommend music based on the user's age in a music app.
 - Extract and copy the music.csv to 'src/data'
 - Run the following code to view the data set.
 
-```sql
+```python
 import pandas as pd
 
 music_data = pd.read_csv('data/music.csv')
 music_data
+```
+
+#### Preparing the Data
+
+- We don't have any repeated data, thus duplicate data removal is not needed.
+- We need to divide our data set to input set and output set.
+
+```python
+# Create a new data set by drop the specified column from a data set.
+input_set = music_data.drop(columns=['genre'])
+input_set
+
+# Create a new data set with the specified column from a data set.
+output_set = music_data['genre']
+output_set
 ```
