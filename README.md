@@ -126,3 +126,28 @@ input_set
 output_set = music_data['genre']
 output_set
 ```
+
+#### Learning and Predicting
+
+- We are going to use Decision Tree algorithm from Scikit-Learn library to create the model.
+- Scikit-Learn is the most popular ML library in Python.
+
+```python
+from sklearn.tree import DecisionTreeClassifier as DTC
+
+# Instance of the DTC class which is an object.
+model = DTC()
+
+# Train the model
+model.fit(input_set, output_set)
+
+# Predict output for data that are not available in the input set
+predictions = model.predict([
+        # [age, gender] as in the input set.
+        [21, 1],
+        [22, 0]
+    ]
+)
+
+predictions
+```
