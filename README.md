@@ -28,7 +28,7 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 
 ## Notes
 
-- Before running a ipynb file in the vscode, run the file on the browser mode of jupyter notebook at least once. Otherwise, it will now load the libraries properly.
+- Before running an ipynb file in the vscode, run the file on the browser mode of jupyter notebook at least once. Otherwise, it will now load the libraries properly.
 
 ## Installation
 
