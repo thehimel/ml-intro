@@ -26,7 +26,6 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 
 - Graphviz (dot) language support for Visual Studio Code by João Pinto
 
-
 ## Notes
 
 - Before running a ipynb file in the vscode, run the file on the browser mode of jupyter notebook at least once. Otherwise, it will now load the libraries properly.
