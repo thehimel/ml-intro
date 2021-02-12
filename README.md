@@ -82,6 +82,7 @@ df.values
   - Press 'Tab' after a object to get the associated methods and attributes.
   - Press 'Shift + Tab' while keeping the cursor on any method or attribute to see the tool tip.
   - Press 'Ctrl + /' to comment or uncomment a line.
+  - Press 'Ctrl + Enter' to run a cell without adding a new cell below the current cell.
 
 ## A Real Problem
 
@@ -106,6 +107,8 @@ Recommend music based on the user's age in a music app.
 - Run the following code to view the data set.
 
 ```python
+# Importing the Data
+
 import pandas as pd
 
 music_data = pd.read_csv('data/music.csv')
@@ -118,6 +121,8 @@ music_data
 - We need to divide our data set to input set and output set.
 
 ```python
+# Preparing the Data
+
 # Create a new data set by drop the specified column from a data set.
 input_set = music_data.drop(columns=['genre'])
 input_set
@@ -133,6 +138,8 @@ output_set
 - Scikit-Learn is the most popular ML library in Python.
 
 ```python
+# Learning and Predicting
+
 from sklearn.tree import DecisionTreeClassifier as DTC
 
 # Instance of the DTC class which is an object.
@@ -150,4 +157,28 @@ predictions = model.predict([
 )
 
 predictions
+```
+
+#### Calculating the Accuracy
+
+- Split the main data set into 2 sets: training set and testing set.
+- Keep 70% to 80% data for training, and rest 20% to 30% data for testing.
+
+```python
+# Calculating the Accuracy
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Splitting the data into training and testing sets with 20% data allocated for testing.
+# Increasing the value of test_size will reduce the accuracy as less data will be there for training.
+# For example for test_size = 0.2, score = 0.75 to 1.0. But for test_size = 0.8, score = 0.2 to 0.4.
+# For test_size=0.1, score = 1.0. 1.0 means 100%, 0.2 means 20%, 0.33 means 33%, and so on.
+# On each run train_test_split() picks data randomly for training. Thus, accuracy may defer on each run.
+input_train, input_test, output_train, output_test = train_test_split(input_set, output_set, test_size=0.2)
+
+model.fit(input_train, output_train)
+predictions = model.predict(input_test)
+
+score = accuracy_score(output_test, predictions)
+score
 ```
