@@ -22,6 +22,11 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 - MatPlotLib
 - Scikit-Learn
 
+## VS Code Extensions
+
+- Graphviz (dot) language support for Visual Studio Code by João Pinto
+
+
 ## Notes
 
 - Before running a ipynb file in the vscode, run the file on the browser mode of jupyter notebook at least once. Otherwise, it will now load the libraries properly.
@@ -47,7 +52,7 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 ## Importing a Data Set
 
 - Go to [Kaggle](https://www.kaggle.com)
-- Search for 'videogamesales'.
+- Search for 'video game sales'.
 - Download the data set from [here](https://www.kaggle.com/gregorut/videogamesales)
 - Keep the csv file inside 'src/data' directory.
 - Create a Python 3 notebook with the following code:
@@ -214,4 +219,39 @@ predictions = model_persistent.predict([
     [21, 1]
 ])
 predictions
+```
+
+#### Visualizing Decision Trees
+
+- Install the extension Graphviz (dot) language support for Visual Studio Code by João Pinto.
+- Reload VS Code.
+- Open the dot file and click on the '...' button on the top right corner and select 'Open Preview to the Side' or press 'Ctrl + K V'
+- It will load the graph of the decision tree.
+
+```python
+# Persisting Models
+
+import pandas as pd
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier as DTC
+
+data_set_location = 'data/music.csv'
+music_data = pd.read_csv(data_set_location)
+input_set = music_data.drop(columns=['genre'])
+output_set = music_data['genre']
+
+# Create a model
+model = DTC()
+
+# Train the model
+model.fit(input_set, output_set)
+
+dot_file_location = 'graphs/music.dot'
+tree.export_graphviz(model, out_file = dot_file_location,
+    feature_names=['age', 'gender'], # Make decisions based on this fields
+    class_names=sorted(output_set.unique()), # Classes are the unique fields of the output set
+    label='all', # All nodes have labels
+    rounded=True, # Leaf nodes are rounded
+    filled=True # Leaf nodes are filled with colors
+)
 ```
