@@ -22,6 +22,10 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 - MatPlotLib
 - Scikit-Learn
 
+## Notes
+
+- Before running a ipynb file in the vscode, run the file on the browser mode of jupyter notebook at least once. Otherwise, it will now load the libraries properly.
+
 ## Installation
 
 - Download and install Anaconda from [here](https://www.anaconda.com/products/individual). It will install all the required libraries for ML.
@@ -79,3 +83,31 @@ df.values
   - Press 'Shift + Tab' while keeping the cursor on any method or attribute to see the tool tip.
   - Press 'Ctrl + /' to comment or uncomment a line.
 
+## A Real Problem
+
+### Problem Statement
+
+Recommend music based on the user's age in a music app.
+
+### Solution Steps
+
+1. Import the data
+2. Clean the data
+3. Split the data intro training and test sets
+4. Create a model
+5. Train the model
+6. Make predictions
+7. Evaluate and improve
+
+#### Import the data
+
+- Download music.csv.zip from [here](https://programmingwithmosh.com/wp-content/uploads/2020/09/music.csv.zip)
+- Extract and copy the music.csv to 'src/data'
+- Run the following code to view the data set.
+
+```sql
+import pandas as pd
+
+music_data = pd.read_csv('data/music.csv')
+music_data
+```
