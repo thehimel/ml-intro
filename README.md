@@ -36,4 +36,5 @@ So, I found a tutorial on his YouTube channel and creating this repository as an
 ## Open Jupyter Notebook
 
 - `jupyter notebook`
-
+- Go to your desired directory.
+- New -> Python 3 Notebook.
